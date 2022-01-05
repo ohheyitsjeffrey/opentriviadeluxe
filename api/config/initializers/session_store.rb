@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Required for graphiql-rails to work in development
 
 if Rails.env.development?
