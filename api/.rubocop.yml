@@ -1,0 +1,20 @@
+Layout/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Exclude:
+    # This file was originally auto-generated.  Whenever we have to change it, we should re-enable this cop.
+    - app/controllers/graphql_controller.rb
+
+Naming/MethodParameterName:
+  Exclude:
+    # This file was originally auto-generated.  Whenever we have to change it, we should re-enable this cop.  
+    - 'app/controllers/graphql_controller.rb'
+
+AllCops:
+  Exclude:
+    - bin/bundle
+  NewCops: enable
