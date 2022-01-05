@@ -45,6 +45,10 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
   gem 'factory_bot_rails'
+
+  # TODO: (dman 2022-01-04) I just added this because I know how to use it, but we should probably learn how to use the
+  # .                       new Rails debugger gem we see a few lines above.
+  gem 'byebug'
 end
 
 group :development do

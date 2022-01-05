@@ -32,6 +32,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# Development 
+# Development
 /postgres/*
 !/postgres/.keep
+
+.byebug_history
