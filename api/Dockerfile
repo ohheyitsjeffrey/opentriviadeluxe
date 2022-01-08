@@ -7,7 +7,7 @@ ARG USER_GID=$USER_UID
 
 # Create the user
 RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME 
+  && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
 
 
 # update path
@@ -16,11 +16,11 @@ RUN chmod 755 /etc/profile.d/00-trivia
 
 # setup rails and app shit
 RUN gem install bundler
-COPY Gemfile /trivia/Gemfile 
-COPY Gemfile.lock /trivia/Gemfile.lock 
+COPY Gemfile /trivia/Gemfile
+COPY Gemfile.lock /trivia/Gemfile.lock
 RUN chown -R $USERNAME:$USERNAME /trivia
 
-RUN bundle 
+RUN bundle
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
