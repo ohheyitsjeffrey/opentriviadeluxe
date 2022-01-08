@@ -8,10 +8,11 @@ Metrics/MethodLength:
   Exclude:
     # This file was originally auto-generated.  Whenever we have to change it, we should re-enable this cop.
     - app/controllers/graphql_controller.rb
+    - test/**/*.rb
 
 Naming/MethodParameterName:
   Exclude:
-    # This file was originally auto-generated.  Whenever we have to change it, we should re-enable this cop.  
+    # This file was originally auto-generated.  Whenever we have to change it, we should re-enable this cop.
     - 'app/controllers/graphql_controller.rb'
 
 AllCops:
