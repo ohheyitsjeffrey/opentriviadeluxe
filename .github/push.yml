@@ -1,0 +1,12 @@
+name: Trivia CI
+on: push
+jobs:
+  rake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and run the app
+        run: docker-compose up -d
+      - name: Run Rails tests and Rubocop (linter)
+      - run: docker-compose exec api bin/rake
+  
