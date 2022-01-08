@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mutations
   class CreateGame < BaseMutation
     # TODO: (dman 2022-01-04) We should probably infer this classname and define this argument
