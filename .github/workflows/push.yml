@@ -8,6 +8,17 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build and run the app
         run: docker-compose up -d
+      - name: Verify the app is running
+        shell: 'script -q -e -c "bash {0}"'
+        run: |
+          docker_ps_output=`docker-compose ps`
+
+          if [[ `"${docker_ps_output}" | grep ap0 | grep running` = "" ]]; then
+            echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"          
+            echo "!!!! Rails app isn't running !!!!!"
+            echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+            echo "${docker_ps_output}"
+          fi
       - name: Run Rails tests and Rubocop (linter)
         # This `shell` line is required to get around a known issue: https://github.com/actions/runner/issues/241#issuecomment-745902718
         shell: 'script -q -e -c "bash {0}"'
