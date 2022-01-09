@@ -4,10 +4,12 @@ jobs:
   rake:
     name: "Rails CI"
     runs-on: ubuntu-latest
+    env:
+      COMPOSE_INTERACTIVE_NO_CLI: "1"
     steps:
       - uses: actions/checkout@v2
       - name: Build and run the app
         run: docker-compose up -d
       - name: Run Rails tests and Rubocop (linter)
-        run: docker-compose exec -T api bin/rake
+        run: docker-compose exec api bin/rake
   
