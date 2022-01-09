@@ -13,11 +13,13 @@ jobs:
         run: |
           docker_ps_output=`docker-compose ps`
 
-          if [[ `"${docker_ps_output}" | grep ap0 | grep running` = "" ]]; then
+          if [[ `"echo ${docker_ps_output}" | grep api | grep running` = "" ]]; then
             echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"          
             echo "!!!! Rails app isn't running !!!!!"
             echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
             echo "${docker_ps_output}"
+
+            exit 1
           fi
       - name: Run Rails tests and Rubocop (linter)
         # This `shell` line is required to get around a known issue: https://github.com/actions/runner/issues/241#issuecomment-745902718
