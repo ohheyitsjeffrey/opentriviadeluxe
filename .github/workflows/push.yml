@@ -8,5 +8,5 @@ jobs:
       - name: Build and run the app
         run: docker-compose up -d
       - name: Run Rails tests and Rubocop (linter)
-      - run: docker-compose exec api bin/rake
+        run: docker-compose exec api bin/rake
   
