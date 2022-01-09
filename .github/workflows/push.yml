@@ -13,7 +13,7 @@ jobs:
         run: |
           docker_ps_output=`docker-compose ps`
 
-          if [[ `"echo ${docker_ps_output}" | grep api | grep running` = "" ]]; then
+          if [[ `echo ${docker_ps_output} | grep api | grep running` = "" ]]; then
             echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"          
             echo "!!!! Rails app isn't running !!!!!"
             echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
