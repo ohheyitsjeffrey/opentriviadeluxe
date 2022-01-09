@@ -22,13 +22,11 @@ jobs:
 
       #       exit 1
       #     fi
-      - name: "[debug] See if stderr gets outputted"
-        shell: 'script -q -e -c "bash {0}"'
-        run: |
-          >&2 echo "GREETINGS FROM STDERR"
       - name: Run Rails tests and Rubocop (linter)
         # This `shell` line is required to get around a known issue: https://github.com/actions/runner/issues/241#issuecomment-745902718
         shell: 'script -q -e -c "bash {0}"'
+        env:
+          RAILS_ENV: test
         run: |
           docker-compose exec -T api bin/rake --trace
   
