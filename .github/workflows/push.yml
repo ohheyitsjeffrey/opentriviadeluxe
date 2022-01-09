@@ -2,6 +2,7 @@ name: Trivia CI
 on: push
 jobs:
   rake:
+    name: "Rails CI"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
