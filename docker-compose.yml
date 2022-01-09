@@ -15,3 +15,9 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  ui:
+    build: ./ui
+    volumes: 
+      - ./ui:/ui
+    ports: 
+      - "3001:3001"
