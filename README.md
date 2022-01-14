@@ -1,6 +1,6 @@
-# Trivia App (To Be Named)
+# Open Trivia Deluxe
 
-A trivia app to me named and writen with Ruby on Rails and React
+A trivia app in progress
 
 ## Prerequisites
 
