@@ -29,7 +29,7 @@ RUN chown -R $USERNAME:$USERNAME /usr/local/bundle
 
 # If log and tmp aren't writeable we'll have issues.  We need to ensure they are
 # TODO: (dman 2022-01-15) might not really be necessary? Fuck around with this more when we get a chance
-RUN mkdir /trivia/logs && chown $USERNAME:$USERNAME /trivia/logs && chmod 664 /trivia/logs
+RUN mkdir /trivia/log && chown $USERNAME:$USERNAME /trivia/log && chmod 664 /trivia/log
 RUN mkdir /trivia/tmp /trivia/tmp/pids /trivia/tmp/storage && chown -R $USERNAME:$USERNAME /trivia/tmp && chmod -R 664 /trivia/tmp
 
 USER $USERNAME
