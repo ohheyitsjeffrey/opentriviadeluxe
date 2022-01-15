@@ -22,6 +22,17 @@ jobs:
 
       #       exit 1
       #     fi
+      - name: Test - can we run echo something with docker-compose exec?
+        # This `shell` line is required to get around a known issue: https://github.com/actions/runner/issues/241#issuecomment-745902718
+        shell: 'script -q -e -c "bash {0}"'
+        run: |
+          docker-compose exec -T api echo sup
+
+      - name: Test - can we run a custom rake task?
+        shell: 'script -q -e -c "bash {0}"'
+        run: |
+          docker-compose exec -T api bin/rake ci_test:greetings
+
       - name: Run Rails tests and Rubocop (linter)
         # This `shell` line is required to get around a known issue: https://github.com/actions/runner/issues/241#issuecomment-745902718
         shell: 'script -q -e -c "bash {0}"'
