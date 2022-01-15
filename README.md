@@ -2,6 +2,10 @@
 
 A trivia app in progress
 
+## License
+
+This code is released under [GPLv3](LICENSE)
+
 ## Prerequisites
 
 ### Docker
