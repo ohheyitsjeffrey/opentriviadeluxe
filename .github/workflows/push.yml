@@ -19,7 +19,7 @@ jobs:
       - name: Sanity check 2
         run: ls -la
       - name: Make tmp and log writeable
-        run: chmod -R 666 ${GITHUB_WORKSPACE}/tmp/ ${GITHUB_WORKSPACE}/logs/
+        run: chmod -R 666 api/tmp/ api/logs/
       - name: Run Rails tests and Rubocop (linter)
         env:
           RAILS_ENV: test
