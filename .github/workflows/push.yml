@@ -28,16 +28,20 @@ jobs:
         run: |
           docker-compose exec -T api echo sup
 
+      - name : Test - cant we run something simple with ruby, no rake?
+        shell: 'script -q -e -c "bash {0}"'
+        run: |
+          docker-compose exec -T api ruby -e 'puts "greetings"'
+
       - name: Test - can we run a custom rake task (w/o environment)?
         shell: 'script -q -e -c "bash {0}"'
         run: |
-          docker-compose exec -T api bin/rake ci_test:greetings_lite      
-
+          docker-compose exec -T api bin/rake --trace ci_test:greetings_lite      
 
       - name: Test - can we run a custom rake task (w/ environment)?
         shell: 'script -q -e -c "bash {0}"'
         run: |
-          docker-compose exec -T api bin/rake ci_test:greetings
+          docker-compose exec -T api bin/rake --trace ci_test:greetings
 
       - name: Run Rails tests and Rubocop (linter)
         # This `shell` line is required to get around a known issue: https://github.com/actions/runner/issues/241#issuecomment-745902718
