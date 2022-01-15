@@ -41,7 +41,7 @@ jobs:
       - name: Test - can we run a custom rake task (w/o environment)?
         shell: 'script -q -e -c "bash {0}"'
         run: |
-          docker-compose exec -T api bin/rake --trace ci_test:greetings_lite      
+          docker-compose exec -T api bin/rake --trace ci_test:greetings_lite 2>&1    
 
       - name: Test - can we run a custom rake task (w/ environment)?
         shell: 'script -q -e -c "bash {0}"'
