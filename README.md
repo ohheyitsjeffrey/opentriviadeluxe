@@ -2,6 +2,8 @@
 
 A trivia app in progress
 
+[![Trivia CI](https://github.com/ohheyitsjeffrey/opentriviadeluxe/actions/workflows/ci.yml/badge.svg)](https://github.com/ohheyitsjeffrey/opentriviadeluxe/actions/workflows/ci.yml)
+
 ## License
 
 This code is released under [GPLv3](LICENSE)
