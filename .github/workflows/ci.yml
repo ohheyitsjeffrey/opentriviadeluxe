@@ -9,7 +9,8 @@ jobs:
         image: postgres:14
         env:
           POSTGRES_PASSWORD: "password"
-        ports: ["5432:5432"]    
+        ports: 
+          - "5432:5432"    
     steps:
       - uses: actions/checkout@v2
       - name: Build the Rails app
@@ -19,7 +20,7 @@ jobs:
       - name: Run Rails tests and Rubocop (linter)
         env:
           RAILS_ENV: test
-          POSTGRES_HOST: localhost
+          POSTGRES_HOST: postgres
         run: |
           docker run --rm \
             -e RAILS_ENV=${RAILS_ENV} \
