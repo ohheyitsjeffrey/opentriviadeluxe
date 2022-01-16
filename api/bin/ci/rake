@@ -1,3 +1,1 @@
 #!/usr/bin/env bash
-
-docker run --rm -e RAILS_ENV=${RAILS_ENV} -e POSTGRES_HOST=${POSTGRES_HOST} -v `pwd`/api:/trivia opentriviadeluxe:latest -- bin/rake
