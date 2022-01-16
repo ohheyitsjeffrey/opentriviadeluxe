@@ -20,9 +20,11 @@ jobs:
       - name: Run Rails tests and Rubocop (linter)
         env:
           RAILS_ENV: test
-          POSTGRES_HOST: postgres
+          POSTGRES_HOST: localhost
         run: |
-          docker run --rm \
+          docker run \
+            --rm \
+            --network host \
             -e RAILS_ENV=${RAILS_ENV} \
             -e POSTGRES_HOST=${POSTGRES_HOST} \
             -v `pwd`/api:/trivia opentriviadeluxe:latest \
