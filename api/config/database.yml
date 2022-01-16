@@ -10,7 +10,7 @@ default: &default
   pool: 5
   username: postgres
   password: password
-  host: db
+  host: <%= ENV.fetch("POSTGRES_HOST", "db") %>
 
 development:
   <<: *default

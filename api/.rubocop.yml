@@ -18,4 +18,5 @@ Naming/MethodParameterName:
 AllCops:
   Exclude:
     - bin/bundle
+    - db/schema.rb
   NewCops: enable

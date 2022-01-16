@@ -1,0 +1,33 @@
+name: Trivia CI
+on: push
+jobs:
+  rake:
+    name: "Rails CI"
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_PASSWORD: "password"
+        ports: 
+          - "5432:5432"    
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Rails app
+        run: docker build -t opentriviadeluxe:latest -t opentriviadeluxe:${GITHUB_SHA} api/
+      - name: Make db, tmp, and log writeable
+        run: sudo chmod -R 777 ${GITHUB_WORKSPACE}/api/tmp ${GITHUB_WORKSPACE}/api/db ${GITHUB_WORKSPACE}/api/log
+      - name: Run Rails tests and Rubocop (linter)
+        env:
+          RAILS_ENV: test
+          POSTGRES_HOST: localhost
+        run: |
+          docker run \
+            --rm \
+            --network host \
+            -e RAILS_ENV=${RAILS_ENV} \
+            -e POSTGRES_HOST=${POSTGRES_HOST} \
+            -v `pwd`/api:/trivia opentriviadeluxe:latest \
+            -- bin/rake
+  

@@ -27,9 +27,14 @@ RUN chmod +x /usr/bin/entrypoint.sh
 
 RUN chown -R $USERNAME:$USERNAME /usr/local/bundle
 
+# If log and tmp aren't writeable we'll have issues.  We need to ensure they are
+# TODO: (dman 2022-01-15) might not really be necessary? Fuck around with this more when we get a chance
+RUN mkdir /trivia/log /trivia/tmp /trivia/tmp/pids /trivia/tmp/storage
+RUN chown -R $USERNAME:$USERNAME /trivia
+
 USER $USERNAME
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/entrypoint.sh"]
 EXPOSE 3000
 
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
