@@ -15,7 +15,7 @@ jobs:
       - name: Build the Rails app
         run: docker build -t opentriviadeluxe:latest -t opentriviadeluxe:${GITHUB_SHA} api/
       - name: Make tmp and log writeable
-        run: sudo chmod -R 775 ${GITHUB_WORKSPACE}/api/tmp ${GITHUB_WORKSPACE}/api/log
+        run: sudo chmod -R 777 ${GITHUB_WORKSPACE}/api/tmp ${GITHUB_WORKSPACE}/api/log
       - name: Sanity check 1
         run: docker run --rm -v `pwd`/api:/trivia opentriviadeluxe:latest -- ls -la
       - name: Sanity check 2
