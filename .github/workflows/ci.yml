@@ -16,8 +16,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the Rails app
         run: docker build -t opentriviadeluxe:latest -t opentriviadeluxe:${GITHUB_SHA} api/
-      - name: Make tmp and log writeable
-        run: sudo chmod -R 777 ${GITHUB_WORKSPACE}/api/tmp ${GITHUB_WORKSPACE}/api/log
+      - name: Make db, tmp, and log writeable
+        run: sudo chmod -R 777 ${GITHUB_WORKSPACE}/api/tmp ${GITHUB_WORKSPACE}/api/db ${GITHUB_WORKSPACE}/api/log
       - name: Run Rails tests and Rubocop (linter)
         env:
           RAILS_ENV: test
