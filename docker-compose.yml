@@ -19,5 +19,6 @@ services:
     build: ./ui
     volumes: 
       - ./ui:/ui
+      - /ui/node_modules
     ports: 
       - "3001:3001"
