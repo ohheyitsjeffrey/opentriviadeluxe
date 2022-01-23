@@ -1,3 +1,5 @@
-require "graphql/rake_task"
+# frozen_string_literal: true
 
-GraphQL::RakeTask.new(schema_name: "TriviaSchema")
+require 'graphql/rake_task'
+
+GraphQL::RakeTask.new(schema_name: 'TriviaSchema')
