@@ -29,7 +29,7 @@ jobs:
             -e RAILS_ENV=${RAILS_ENV} \
             -e POSTGRES_HOST=${POSTGRES_HOST} \
             -v `pwd`/api:/trivia opentriviadeluxe:latest \
-            -- bin/rake
+            -- bin/rake            
   uici:
     name: "UI App CI"
     runs-on: ubuntu-latest
@@ -38,4 +38,4 @@ jobs:
       - name: Build UI and Docker Image
         run: docker build -t opentriviadeluxeui:latest -t opentriviadeluxeui:${GITHUB_SHA} ui/
       - name: Run Jest Tests
-        run:  docker run --rm --network host -v `pwd`/ui:/ui -v /ui/node_modules opentriviadeluxeui:latest npm test
+        run:  docker run --rm --network host -e CI=true -v `pwd`/ui:/ui -v /ui/node_modules opentriviadeluxeui:latest npm test
