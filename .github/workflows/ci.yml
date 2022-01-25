@@ -30,4 +30,12 @@ jobs:
             -e POSTGRES_HOST=${POSTGRES_HOST} \
             -v `pwd`/api:/trivia opentriviadeluxe:latest \
             -- bin/rake
-  
+  uici:
+    name: "UI App CI"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build UI and Docker Image
+        run: docker build -t opentriviadeluxeui:latest -t opentriviadeluxeui:${GITHUB_SHA} ui/
+      - name: Run Jest Tests
+        run:  docker run --rm --network host -v `pwd`/ui:/ui -v /ui/node_modules opentriviadeluxeui:latest npm test
