@@ -76,6 +76,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -203,6 +205,7 @@ DEPENDENCIES
   byebug
   debug
   factory_bot_rails
+  faker
   graphiql-rails
   graphql
   listen
@@ -220,4 +223,4 @@ RUBY VERSION
    ruby 3.0.3p157
 
 BUNDLED WITH
-   2.3.4
+   2.3.6
