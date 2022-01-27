@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
 class Game < ApplicationRecord
-  enum status: %i[open in_progress complete]
+  enum status: {
+    waiting: 0,
+    scheduled: 1,
+    live: 2,
+    complete: 3
+  }
 
   before_validation :generate_join_code
 
-  validates :join_code, presence: true, uniqueness: { if: :open? }
+  validates :join_code, presence: true, uniqueness: { if: :waiting? }
   validates :name, presence: true
 
-  scope :active, -> { where(status: %i[open in_progress]) }
+  scope :active, -> { where.not(status: :complete) }
 
   class << self
     AMBIGUOUS_LETTERS = %w[I O].freeze
