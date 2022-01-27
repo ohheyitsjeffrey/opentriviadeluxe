@@ -6,19 +6,25 @@ services:
       - ./api/postgres/data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+  redis:
+    image: redis:6.2
+    ports:
+      - "6379:6379"
   api:
     build: ./api
-    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ./api:/trivia
     ports:
       - "3000:3000"
     depends_on:
       - db
+      - redis
+    environment:
+      REDIS_URL: redis://redis:6379/1
   ui:
     build: ./ui
-    volumes: 
+    volumes:
       - ./ui:/ui
       - /ui/node_modules
-    ports: 
+    ports:
       - "3001:3001"
