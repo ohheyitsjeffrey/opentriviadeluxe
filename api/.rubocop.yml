@@ -15,6 +15,9 @@ Naming/MethodParameterName:
     # This file was originally auto-generated.  Whenever we have to change it, we should re-enable this cop.
     - 'app/controllers/graphql_controller.rb'
 
+Style/StringLiterals:
+  EnforcedStyle: "double_quotes"
+
 AllCops:
   Exclude:
     - bin/bundle

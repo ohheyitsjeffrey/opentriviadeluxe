@@ -21,7 +21,7 @@ class Game < ApplicationRecord
     JOIN_CODE_LENGTH = 6
 
     def generate_join_code
-      (('A'..'Z').to_a - AMBIGUOUS_LETTERS).sample(JOIN_CODE_LENGTH).join
+      (("A".."Z").to_a - AMBIGUOUS_LETTERS).sample(JOIN_CODE_LENGTH).join
     end
   end
 

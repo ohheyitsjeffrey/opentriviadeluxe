@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class GameTest < ActiveSupport::TestCase
-  test 'generates a unique join code on creation' do
+  test "generates a unique join code on creation" do
     game = create :game
 
     assert game.join_code.present?
@@ -11,7 +11,7 @@ class GameTest < ActiveSupport::TestCase
     assert_equal 6, game.join_code.length
   end
 
-  test 'validates presence of name' do
+  test "validates presence of name" do
     game = build :game, name: nil
 
     assert_not game.valid?
@@ -19,12 +19,12 @@ class GameTest < ActiveSupport::TestCase
     assert_equal ["can't be blank"], game.errors[:name]
   end
 
-  test 'requires join codes to be unique unless the game is complete' do
+  test "requires join codes to be unique unless the game is complete" do
     existing_game = create :game
     game = build :game, join_code: existing_game.join_code
 
     assert_not game.valid?
-    assert_equal ['has already been taken'], game.errors[:join_code]
+    assert_equal ["has already been taken"], game.errors[:join_code]
 
     game.status = :complete
 

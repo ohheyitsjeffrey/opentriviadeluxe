@@ -5,6 +5,6 @@ module Types
     field :create_game,
           mutation: Mutations::CreateGame,
           null: false,
-          description: 'Create a new game'
+          description: "Create a new game"
   end
 end
