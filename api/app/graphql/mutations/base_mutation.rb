@@ -7,7 +7,7 @@ module Mutations
     object_class Types::BaseObject
 
     def raise_error_for!(model)
-      raise GraphQL::ExecutionError, model.errors.full_messages.join(', ')
+      raise GraphQL::ExecutionError, model.errors.full_messages.join(", ")
     end
   end
 end

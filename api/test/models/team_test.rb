@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class TeamTest < ActiveSupport::TestCase
-  test 'requires name to be present' do
+  test "requires name to be present" do
     team = build(:team, name: nil)
 
     assert_not team.valid?
 
-    team.name = ''
+    team.name = ""
 
     assert_not team.valid?
 
-    team.name = 'some name'
+    team.name = "some name"
 
     assert team.valid?
   end
 
-  test 'belongs to a game' do
+  test "belongs to a game" do
     team = create(:team)
 
     assert team.game.present?
