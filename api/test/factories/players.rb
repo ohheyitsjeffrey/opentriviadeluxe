@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :player do
-    name { Faker::WorldCup.team }
+    name { Faker::Name.first_name }
     team
   end
 end

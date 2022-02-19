@@ -26,8 +26,11 @@ ActiveRecord::Schema.define(version: 2022_02_06_213509) do
   end
 
   create_table "players", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "team_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_players_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
