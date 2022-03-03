@@ -1,0 +1,5 @@
+#!/bin/bash
+ROOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}")" && cd .. &> /dev/null && pwd )
+
+# run rubocop from within the container to avoid having to install ruby just for linting
+docker run -v $ROOT_DIR/api:/trivia opentriviadeluxe-api rubocop "$@"

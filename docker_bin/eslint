@@ -1,0 +1,4 @@
+#!/bin/bash
+ROOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}")" && cd .. &> /dev/null && pwd )
+
+docker run -v $ROOT_DIR/ui:/ui opentriviadeluxe-ui npm run lint "$@"

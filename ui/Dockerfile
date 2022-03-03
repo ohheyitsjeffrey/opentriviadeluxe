@@ -20,4 +20,4 @@ USER node
 RUN npm install
 
 # start ui
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
