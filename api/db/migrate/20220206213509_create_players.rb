@@ -5,7 +5,7 @@ class CreatePlayers < ActiveRecord::Migration[7.0]
     create_table :players do |t|
       t.string :name, null: false
       t.references :team, null: true
-      
+
       t.timestamps
     end
   end

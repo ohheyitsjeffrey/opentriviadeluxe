@@ -4,6 +4,9 @@ Layout/LineLength:
 Style/Documentation:
   Enabled: false
 
+Naming/VariableNumber:
+  Enabled: false
+
 Metrics/MethodLength:
   Exclude:
     # This file was originally auto-generated.  Whenever we have to change it, we should re-enable this cop.
