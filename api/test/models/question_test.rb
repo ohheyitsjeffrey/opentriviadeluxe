@@ -15,7 +15,6 @@ class QuestionTest < ActiveSupport::TestCase
 
     assert_not question_2.valid?
     assert_equal ["has already been taken"], question_2.errors[:order]
-    # debugger
 
     other_game = create :game
     question_2.game = other_game

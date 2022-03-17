@@ -9,7 +9,5 @@ class CreateQuestions < ActiveRecord::Migration[7.0]
       t.references :game, null: false
       t.timestamps
     end
-
-    # add_index :questions, :order,
   end
 end

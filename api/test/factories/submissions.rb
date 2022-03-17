@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :submission do
     response { Faker::Creature::Animal.name }
-    status { 0 }
+    status { :working }
     team
     player { null }
     question
