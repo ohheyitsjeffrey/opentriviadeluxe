@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class QuestionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+test "order value must be unique per game" do
+    
+  end
 end

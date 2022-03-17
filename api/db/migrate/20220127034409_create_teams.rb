@@ -5,7 +5,7 @@ class CreateTeams < ActiveRecord::Migration[7.0]
     create_table :teams do |t|
       t.string :name, null: false
       t.references :game, null: false, index: true
-
+      
       t.timestamps
     end
   end
