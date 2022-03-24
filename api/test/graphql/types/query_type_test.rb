@@ -4,7 +4,7 @@ require "test_helper"
 
 module Types
   class QueryTypeTest < ActiveSupport::TestCase
-    test "returns a game for a join code" do
+    test "returns a game with teams for a join code" do
       game = create(:game)
 
       query = <<~GQL
@@ -12,6 +12,9 @@ module Types
           gameForJoinCode(joinCode: $joinCode) {
             id
             name
+            teams {
+              id
+            }
           }
         }
       GQL
@@ -23,7 +26,13 @@ module Types
 
       returned_game = result.dig("data", "gameForJoinCode")
 
-      assert_equal({ "id" => game.to_param, "name" => game.name }, returned_game)
+      expected_response = { 
+        "id" => game.to_param, 
+        "name" => game.name, 
+        "teams" => game.teams.map { |team| { "id" => team.to_param } } 
+      }
+
+      assert_equal(expected_response, returned_game)
     end
   end
 end
