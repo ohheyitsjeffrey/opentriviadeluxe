@@ -28,5 +28,6 @@ type Mutation {
 }
 
 type Query {
+  gameForJoinCode(joinCode: String!): Game
   id: String!
 }
