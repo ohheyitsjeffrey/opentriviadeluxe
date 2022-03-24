@@ -85,6 +85,18 @@
 
 - player to team
 
+### Queries
+
+- game
+- team
+- player
+- question
+- submission
+
+status updates for game
+
+
+
 
 
 

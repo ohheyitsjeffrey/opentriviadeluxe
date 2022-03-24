@@ -36,6 +36,6 @@ class Game < ApplicationRecord
   end
 
   def create_spectator_team
-    self.teams.create(name: "no team", spectator: true)
+    teams.create(name: "no team", spectator: true)
   end
 end

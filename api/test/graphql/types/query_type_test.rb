@@ -26,10 +26,10 @@ module Types
 
       returned_game = result.dig("data", "gameForJoinCode")
 
-      expected_response = { 
-        "id" => game.to_param, 
-        "name" => game.name, 
-        "teams" => game.teams.map { |team| { "id" => team.to_param } } 
+      expected_response = {
+        "id" => game.to_param,
+        "name" => game.name,
+        "teams" => game.teams.map { |team| { "id" => team.to_param } }
       }
 
       assert_equal(expected_response, returned_game)
