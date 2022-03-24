@@ -30,4 +30,13 @@ class GameTest < ActiveSupport::TestCase
 
     assert game.valid?
   end
+
+  test "creates a spectator team on create" do
+    game = create :game, name: "yeah boi"
+
+    assert game.valid?
+
+    assert_equal 1, game.teams.count
+    assert game.teams.first.spectator?
+  end
 end

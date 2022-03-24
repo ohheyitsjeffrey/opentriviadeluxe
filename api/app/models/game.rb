@@ -15,6 +15,10 @@ class Game < ApplicationRecord
 
   scope :active, -> { where.not(status: :complete) }
 
+  has_many :teams
+
+  after_create :create_spectator_team
+
   class << self
     AMBIGUOUS_LETTERS = %w[I O].freeze
 
@@ -29,5 +33,9 @@ class Game < ApplicationRecord
 
   def generate_join_code
     self.join_code ||= self.class.generate_join_code
+  end
+
+  def create_spectator_team
+    teams.create(name: "no team", spectator: true)
   end
 end

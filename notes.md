@@ -70,3 +70,33 @@
 
 - belongs_to :game
 
+
+## Queries and Mutations
+
+### Create
+
+- game
+- team
+- player
+- question
+- submission
+
+### Join
+
+- player to team
+
+### Queries
+
+- game
+- team
+- player
+- question
+- submission
+
+status updates for game
+
+
+
+
+
+
